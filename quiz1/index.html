@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h2 id="menu-title">Homepage</h2>
+        <nav id="dropdown">
+            <ul>
+                <li><a href="../quiz1">Homepage</a></li>
+                <li><a href="../quiz1/profile">Profile</a></li>
+                <li><a href="../quiz1/hometown">Hometown</a></li>
+                <li><a href="../quiz1/food">Local Food</a></li>
+                <li><a href="../quiz1/tourist">Tourist Places</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h1>Hi! Selamat datang di Website ku 👋</h1>
+        <p><small>Klik tulisan di pojok kiri untuk menjelajahi laman website lebih lanjut!</small></p>
+    </section>
+    <footer>Copyright © 2025</footer>
+
+    <script>
+    document.getElementById('menu-title').onclick = function (event) {
+        document.getElementById('dropdown').classList.toggle('open');
+    };
+    document.onclick = function (event) {
+        var dropdown = document.getElementById('dropdown');
+        var title    = document.getElementById('menu-title');
+
+        if (!dropdown.contains(event.target) && !title.contains(event.target)) {
+            dropdown.classList.remove('open');
+        }
+    };
+    </script>
+</body>
+</html>

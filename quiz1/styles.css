@@ -1,0 +1,187 @@
+        html, body {
+            height: 100%;             /* pastikan tinggi penuh */
+            margin: 0;
+        }
+
+        body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(123, 83, 83);
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;   /* urut: header -> section -> footer */
+        }
+
+        /* Bagian konten supaya mendorong footer ke bawah */
+        section {
+            flex: 1;                               /* isi ruang sisa */
+            display: flex;                          /* agar isi bisa di tengah */
+             flex-direction: column;  /* anak-anak ditumpuk ke bawah */
+            justify-content: center; /* tengah vertikal */
+            align-items: center;     /* tengah horizontal */
+            background-color: white;
+            text-align: center;
+        }
+
+        /* Style untuk small, tanpa sentuh langsung <small> di HTML */
+        section small {
+            color: #6c757d;
+        }
+
+        /* Footer tetap di bawah */
+        footer {
+            background-color: rgb(226, 226, 226);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        /* HEADER */
+        header a {
+            color: white;            
+        }
+        header a:hover {
+            color: rgb(0, 0, 0);
+            background-color: darkgrey;
+            border-radius: 5px;
+            padding: 4px;            
+        }
+        header {
+            padding: 20px 30px;
+            background-color: black;
+            color: white;
+        }
+        header h2 {
+            margin: 0;
+            display: inline-block;
+            cursor: pointer;
+        }
+        header nav {
+            display: none;         /* hide */
+            padding-top: 10px;
+        }
+        header nav.open {          /* show */
+            display: block;
+        }
+        header nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        header nav li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        /* PROFILE.HTML */
+        /* kartu utama */
+        div {
+        display: flex;
+        max-width: 540px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        background: white;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        margin: 10px auto;
+        }
+
+        /* kolom kiri (gambar) */
+        div div:first-child {
+        flex: 1 1 80%;
+        background: #ccc;
+        }
+
+        div div:first-child img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        }
+
+        /* kolom kanan (isi teks) */
+        div div:last-child {
+        flex: 1 1 60%;
+        padding: 15px;
+        display: flex;
+    flex-direction: column;
+        }
+
+        div h5 {
+        margin: 0 0 10px;
+        font-size: 1.2rem;
+        }
+
+        div p {
+        margin: 0 0 10px;
+        color: #333;
+        }
+
+        div small {
+        font-size: 0.85rem;
+        color: #666;
+        }
+
+        
+        /* RESPONSIVE */
+        /* HEADER */
+        @media screen and (max-width: 580px) {
+            header nav ul {
+                display: block;
+                padding: 0;
+                margin: 0;
+            }
+            
+            header nav li {
+                display: block;      /* li jadi 1 baris penuh */
+                padding: 10px 15px;
+            }
+            header nav li a {
+                display: block;      /* li jadi 1 baris penuh */
+            }
+
+            header nav li:hover {
+                background-color: darkgrey;
+                border-radius: 5px;
+            }
+        }
+        /* FOOTER */
+        @media screen and (max-height: 500px) {
+            body {
+                display: block; /* nonaktifkan flexbox */
+            }
+
+            section {
+                display: block;
+                flex: unset;          /* hapus flex grow */
+                min-height: 400px;     /* biar sesuai konten */
+                padding: 40px 15px;
+            }
+        }
+
+        /* responsive */
+        @media (max-width: 600px) {
+            /* container utama (anggap card luar) */
+            body div {
+                display: flex;
+                flex-direction: column;
+                max-width: 90%;
+                margin: 20px auto;
+            }
+
+            /* kolom di dalam container */
+            body div div {
+                flex: 1 1 100%;
+            }
+
+            /* gambar di kolom pertama */
+            body div div:first-child img {
+                width: 100%;
+                height: 200px;     /* fix tinggi hp */
+                object-fit: cover;
+            }
+        }

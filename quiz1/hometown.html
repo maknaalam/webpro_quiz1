@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h2 id="menu-title">Hometown</h2>
+        <nav id="dropdown">
+            <ul>
+                <li><a href="../quiz1">Homepage</a></li>
+                <li><a href="../quiz1/profile">Profile</a></li>
+                <li><a href="../quiz1/hometown">Hometown</a></li>
+                <li><a href="../quiz1/food">Local Food</a></li>
+                <li><a href="../quiz1/tourist">Tourist Places</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h2>Panggonku Ning</h2>
+        <div>
+            <div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126646.20750916582!2d112.71268375!3d-7.275619450000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbf8381ac47f%3A0x3027a76e352be40!2sSurabaya%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1758787134996!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div>
+                <h5>Surabaya</h5>
+                <p>
+                Surabaya is a big city. Even I, who grew up mostly in Surabaya, can't remember all the name of places and roads that Surabaya has. On my defends, I'm not memorizing all of the places because of how Surabaya is more of a busy city rather than a vacation destination. There aren't a lot of good quality tourist places to be remembered, mostly it's just malls that became the attraction of Surabaya. So that's why I intend to just not remembering the name of each places. But if you want my recommendation of tourist attractions, you can go to my <a href="tourist">tourist places</a> page!
+                </p>
+            </div>
+        </div>
+    </section>
+    <footer>Copyright © 2025</footer>
+
+    <script>
+    document.getElementById('menu-title').onclick = function (event) {
+        document.getElementById('dropdown').classList.toggle('open');
+    };
+
+    document.onclick = function (event) {
+        var dropdown = document.getElementById('dropdown');
+        var title    = document.getElementById('menu-title');
+
+        if (!dropdown.contains(event.target) && !title.contains(event.target)) {
+            dropdown.classList.remove('open');
+        }
+    };
+    </script>
+</body>
+</html>

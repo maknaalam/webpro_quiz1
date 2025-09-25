@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        section {
+    display: flex;        /* ini wajib supaya flex-direction, wrap, dsb. bekerja */
+    flex-direction: column; /* default saat layar kecil */
+    align-items: center;    /* biar rapi di layar kecil */
+}
+        /* CARD CLASS */
+        @media screen and (min-width: 1350px) {
+            section {
+        flex-direction: row;       /* menyamping */
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;   /* biar card nempel atas */
+    }
+
+    section h2 {
+        flex-basis: 100%;          
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+
+        /* ini kuncinya */
+        align-self: center;  /* bikin h2 tetap “tengah” vertikal */
+    }
+
+    .card {
+    display: flex;
+    flex: 1 1 300px;  /* lebar dasar 300px, bisa melebar/menyusut */
+    max-width: 500px; /* jangan terlalu besar */
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2 id="menu-title">Tourist Places</h2>
+        <nav id="dropdown">
+            <ul>
+                <li><a href="../quiz1">Homepage</a></li>
+                <li><a href="../quiz1/profile">Profile</a></li>
+                <li><a href="../quiz1/hometown">Hometown</a></li>
+                <li><a href="../quiz1/food">Local Food</a></li>
+                <li><a href="../quiz1/tourist">Tourist Places</a></li>
+            </ul>
+        </nav>
+    </header>
+<section>
+    <h2>Penake Neng Ndie?</h2>
+    <div class="card">
+        <div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.512269684099!2d112.73408037500005!3d-7.296195892711387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb97917c2fad%3A0x21b1122d5fe174cc!2sKebun%20Binatang%20Surabaya%20%2F%20Surabaya%20Zoo!5e0!3m2!1sid!2sid!4v1758792997966!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div>
+            <h5>Surabaya Zoo</h5>
+            <p>Surabaya Zoo (Kebun Binatang Surabaya - KBS) is one of the oldest and largest zoos in Southeast Asia, established in 1916. Located in Surabaya, East Java, it is a major local attraction and a center for animal conservation and education, housing a diverse collection of animals, including Indonesian endemic species like the Komodo dragon.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.803670964678!2d112.73749617499976!3d-7.263171092743676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7f960aee9a64d%3A0xaa9e2f2c4ed67175!2sTunjungan%20Plaza!5e0!3m2!1sid!2sid!4v1758793072601!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div>
+            <h5>Tunjungan Plaza Mall</h5>
+            <p>Tunjungan Plaza (TP) is the largest and most iconic shopping center in downtown Surabaya. It is a massive, integrated superblock of six interconnected malls (TP 1-6), often cited as one of the largest in Indonesia. It serves as a premier lifestyle and retail destination, featuring a vast array of local and international fashion brands, dining options, entertainment (cinemas, arcades), and is part of a complex that includes hotels and residences.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7914.825550533608!2d112.81376871409618!3d-7.307437699999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7f064d69009bd%3A0xb47f9fdd085dae10!2sEkowisata%20Mangrove%20Wonorejo!5e0!3m2!1sid!2sid!4v1758793176783!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div>
+            <h5>Ekowisata Mangrove Wonorejo</h5>
+            <p>Wonorejo Mangrove Ecotourism is a protected area on the eastern coast of Surabaya, offering a vital green escape from the city. Visitors can explore the extensive mangrove forest via a boat tour along the river or by walking on bamboo bridges and observation decks. It serves as a natural barrier against erosion and a habitat for various local wildlife, particularly birds and monkeys, offering opportunities for eco-education and conservation.</p>
+        </div>
+    </div>
+</section>
+    <footer>Copyright © 2025</footer>
+
+    <script>
+    document.getElementById('menu-title').onclick = function (event) {
+        document.getElementById('dropdown').classList.toggle('open');
+    };
+
+    document.onclick = function (event) {
+        var dropdown = document.getElementById('dropdown');
+        var title    = document.getElementById('menu-title');
+
+        if (!dropdown.contains(event.target) && !title.contains(event.target)) {
+            dropdown.classList.remove('open');
+        }
+    };
+    </script>
+</body>
+</html>

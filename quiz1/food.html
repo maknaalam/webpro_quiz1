@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        section {
+    display: flex;        /* ini wajib supaya flex-direction, wrap, dsb. bekerja */
+    flex-direction: column; /* default saat layar kecil */
+    align-items: center;    /* biar rapi di layar kecil */
+}
+        /* CARD CLASS */
+        @media screen and (min-width: 1350px) {
+            section {
+        flex-direction: row;       /* menyamping */
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;   /* biar card nempel atas */
+    }
+
+    section h2 {
+        flex-basis: 100%;          
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+
+        /* ini kuncinya */
+        align-self: center;  /* bikin h2 tetap “tengah” vertikal */
+    }
+
+    .card {
+    display: flex;
+    flex: 1 1 300px;  /* lebar dasar 300px, bisa melebar/menyusut */
+    max-width: 500px; /* jangan terlalu besar */
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2 id="menu-title">Local Food</h2>
+        <nav id="dropdown">
+            <ul>
+                <li><a href="../quiz1">Homepage</a></li>
+                <li><a href="../quiz1/profile">Profile</a></li>
+                <li><a href="../quiz1/hometown">Hometown</a></li>
+                <li><a href="../quiz1/food">Local Food</a></li>
+                <li><a href="../quiz1/tourist">Tourist Places</a></li>
+            </ul>
+        </nav>
+    </header>
+<section>
+    <h2>Panganan Khas Arek Suroboyoan Iki</h2>
+
+        <div class="card">
+            <div>
+                <img src="images/rujak_cingur.jpeg" alt="Image">
+            </div>
+            <div>
+                <h5>Rujak Cingur</h5>
+                <p>Rujak Cingur features a unique mix of sliced fruits and vegetables, rice cake, tofu, and tempeh, all served with a thick, savory, and sweet dark sauce made from fermented shrimp paste (petis), peanuts, and chili. The dish's most distinctive ingredient is the "cingur," which is tenderly cooked cow's snout, adding a chewy texture to the salad.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div>
+                <img src="images/semanggi.jpeg" alt="Image">
+            </div>
+            <div>
+                <h5>Semanggi</h5>
+                <p>Semanggi consists of steamed clover leaves (Marsilea crenata) and bean sprouts, topped with a thick, savory-sweet peanut and sweet potato sauce (sometimes containing shrimp paste or petis). It is typically served on a banana leaf "plate" (pincuk) and often eaten with rice crackers (kerupuk puli).</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div>
+                <img src="images/lontong_balap.png" alt="Image">
+            </div>
+            <div>
+                <h5>Lontong Balap</h5>
+                <p>Lontong Balap features slices of lontong (compressed rice cake) served with a savory, thin soup containing a generous amount of bean sprouts, fried tofu, and lentho (a fried cake made from mashed black-eyed peas). The dish is usually enhanced with sweet soy sauce and a dollop of spicy shrimp paste (sambal petis), and often paired with mussel satay (sate kerang).</p>
+            </div>
+        </div>
+</section>
+
+    <footer>Copyright © 2025</footer>
+
+    <script>
+    document.getElementById('menu-title').onclick = function (event) {
+        document.getElementById('dropdown').classList.toggle('open');
+    };
+
+    document.onclick = function (event) {
+        var dropdown = document.getElementById('dropdown');
+        var title    = document.getElementById('menu-title');
+
+        if (!dropdown.contains(event.target) && !title.contains(event.target)) {
+            dropdown.classList.remove('open');
+        }
+    };
+    </script>
+</body>
+</html>

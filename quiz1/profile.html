@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h2 id="menu-title">Profile</h2>
+        <nav id="dropdown">
+            <ul>
+                <li><a href="../quiz1">Homepage</a></li>
+                <li><a href="../quiz1/profile">Profile</a></li>
+                <li><a href="../quiz1/hometown">Hometown</a></li>
+                <li><a href="../quiz1/food">Local Food</a></li>
+                <li><a href="../quiz1/tourist">Tourist Places</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h2>Kenalno Rek</h2>
+        <div>
+            <div>
+                <img src="images/profile.jpeg" alt="Image">
+            </div>
+            <div>
+                <h5>He/Him</h5>
+                <p>
+                My name is Makna Alam Pratama, you can call me Alam. I'm currently enrolling undergraduate program of Informatics Engineering in Institut Teknologi Sepuluh Nopember. There aren't many things to talk about me, but if you want to get to know me more you can see my life update on my <a href="https://www.instagram.com/malamprat">instagram</a>!
+                </p>
+            </div>
+        </div>
+    </section>
+    <footer>Copyright © 2025</footer>
+
+    <script>
+    document.getElementById('menu-title').onclick = function (event) {
+        document.getElementById('dropdown').classList.toggle('open');
+    };
+
+    document.onclick = function (event) {
+        var dropdown = document.getElementById('dropdown');
+        var title    = document.getElementById('menu-title');
+
+        if (!dropdown.contains(event.target) && !title.contains(event.target)) {
+            dropdown.classList.remove('open');
+        }
+    };
+    </script>
+</body>
+</html>
